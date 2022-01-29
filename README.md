@@ -12,3 +12,12 @@ The user can see your info after login or sign up and update your data (personal
 The third page (src/components/AllUsersPage) is only for ADMIN user's who be able to check the data from registrations .
 
 
+
+
+
+The technologies which used for the employee-app :
+
+1. Front-End : React and Css 
+2. UI-View (excluding React JSX code) : Material UI , CSS Flexbox
+3. State Management : Redux
+4. Making Api calls : axios,fetch
