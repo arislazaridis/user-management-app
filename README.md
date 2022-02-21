@@ -1,4 +1,4 @@
-***Info for the employee-app***
+***Info for the user-management-app***
 
 The app on the first page (src/components/LogInSignUpPage) has 2 forms  :
 - Sign In Form for the existing users ( LogInSignUpPage/components/SignIn/SignIn.js )
