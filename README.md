@@ -15,7 +15,7 @@ The third page (src/components/AllUsersPage) is only for ADMIN user's who be abl
 
 
 
-The technologies which used for the employee-app :
+The technologies which used for the user-management-app :
 
 1. Front-End : React and Css 
 2. UI-View (excluding React JSX code) : Material UI , CSS Flexbox
