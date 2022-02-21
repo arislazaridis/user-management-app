@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import axios from "axios";
-// import { connect } from "react-redux";
-import { goToPage, page } from "../../models/routing/props";
-import { setUsersData } from "../../models/sign-forms/props";
+import { connect } from "react-redux";
+import { goToPage } from "../../models/routing/actions";
+import { setUsersData } from "../../models/sign-forms/actions";
 import UserDataPage from "../UserDataPage/UserDataPage";
 import LogInSignUpPage from "./../LogInSignUpPage/LogInSignUpPage";
 import { API_URL, PAGES } from "../../config/config";
 import AllUsersPage from "../AllUsersPage/components/AllUsersPage";
-import { withProps } from "../../utils/props";
 
-function Layout({ page, goToPage, setUsersData }) {
+function Layout(props) {
+  const { page, goToPage, setUsersData } = props;
   useEffect(() => {
     const dataFromLocalStorage = JSON.parse(localStorage.getItem("login_user"));
 
@@ -58,4 +58,22 @@ function Layout({ page, goToPage, setUsersData }) {
   );
 }
 
-export default withProps({ page, goToPage, setUsersData })(Layout);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    page: state.router.page,
+    username: state.signForms.usersData.username,
+    password: state.signForms.usersData.password,
+    confirmPassword: state.signForms.usersData.confirmPassword,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // dispatching plain actions
+    goToPage: (payload) => dispatch(goToPage(payload)),
+    setUsersData: (payload) => dispatch(setUsersData(payload)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
